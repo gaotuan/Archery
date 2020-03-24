@@ -540,9 +540,9 @@ class Config(models.Model):
     """
     配置信息表
     """
-    item = models.CharField('配置项', max_length=200, primary_key=True)
+    item = models.CharField('配置项', max_length=190, primary_key=True)
     value = fields.EncryptedCharField(verbose_name='配置项值', max_length=500)
-    description = models.CharField('描述', max_length=200, default='', blank=True)
+    description = models.CharField('描述', max_length=190, default='', blank=True)
 
     class Meta:
         managed = True

@@ -122,9 +122,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'archery',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'USER': 'archery',
+        'PASSWORD': 'archery',
+        'HOST': '101.132.118.171',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -149,7 +149,7 @@ Q_CLUSTER = {
     'queue_limit': 50,
     'label': 'Django Q',
     'django_redis': 'default',
-    'sync': False  # 本地调试可以修改为True，使用同步模式
+    'sync': True  # 本地调试可以修改为True，使用同步模式
 }
 
 # 缓存配置
@@ -245,15 +245,15 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': False
         },
-        # 'django.db': {  # 打印SQL语句，方便开发
-        #     'handlers': ['console', 'default'],
-        #     'level': 'DEBUG',
-        #     'propagate': False
-        # },
-        # 'django.request': {  # 打印请求错误堆栈信息，方便开发
-        #     'handlers': ['console', 'default'],
-        #     'level': 'DEBUG',
-        #     'propagate': False
-        # },
+        'django.db': {  # 打印SQL语句，方便开发
+            'handlers': ['console', 'default'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
+        'django.request': {  # 打印请求错误堆栈信息，方便开发
+            'handlers': ['console', 'default'],
+            'level': 'DEBUG',
+            'propagate': False
+        },
     }
 }
