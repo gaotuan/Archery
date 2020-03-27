@@ -408,10 +408,11 @@ def workflowsdetail(request, audit_id):
 
 
 @permission_required('sql.menu_document', raise_exception=True)
-def dbaprinciples(request):
+def dbaprinciples(request,pname):
     """SQL文档页面"""
     #  读取MD文件
-    file = os.path.join(settings.BASE_DIR, 'docs/docs.md')
+    file = os.path.join(settings.BASE_DIR, 'docs/'+pname)
     with open(file, 'r') as f:
         md = f.read().replace('\n', '\\n')
     return render(request, 'dbaprinciples.html', {'md': md})
+
